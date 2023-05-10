@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: powderblue;
+            color: #121212;
+            font-family: monospace;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        button {
+            min-width: 100px;
+            margin: 10px 0;
+            background: #0091EA;
+            border-radius: 10px;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 1rem;
+        }
+
+        p,
+        ul li,
+        ol li {
+            font-size: 1.4rem;
+            line-height: 1.2;
+            margin: 2rem 0;
+        }
+
+        ul li span,
+        ol li span {
+            font-size: .8rem;
+        }
+
+        ul,
+        ol {
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #emoji {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 3rem;
+            line-height: 100px;
+        }
+
+        .emoji-bg {
+            border: 1px solid #121212;
+            height: 800px;
+            width: 800px;
+            margin: 0 auto;
+            position: relative;
+            background-image: url("maze.png");
+        }
+    </style>
+    <title>Koodilabori ülesanne</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tere! 👀</h1>
+        <!-- 0. Leia koodi vahelt kommentaaridest juhendid ja täida ülesandeid numbrite järjekorras. -->
+        <br>
+        <ol>
+            <li>Lae ülesande kaust alla 👉 <a href="maze-game.zip">SIIT</a> 👈!</li>
+            <li>Paki failid lahti <span class="">Parema klõpsu all .zip kausta peale klikkides "Extract all".</span></li>
+            <li>Ava index.html programmiga Visual Studio Code ning brauseriga Chrome. <span class="">Mugavaks
+                    tegutsemiseks aseta aknad ekraanile kõrvuti. Leia Chrome-is parema klõpsu alt üles "Inspect"
+                    tööriist. Selle abil saab tekkinud vigu leida.</span></li>
+            <li>Tööjuhendi leiad kommentaaridena koodi vahelt.</li>
+        </ol>
+        <br>
+        <p>Nende nuppude abil saad proovida, kuidas <span class="nimi"></span> liigub.</p>
+
+        <!-- Ära neid nuppe muuda -->
+        <button onclick="moveLeft()">vasakule</button>
+        <button onclick="moveRight()">paremale</button>
+        <button onclick="moveBottom()">alla</button>
+        <button onclick="moveTop()">üles</button>
+
+        <div class="emoji-bg">
+            <!-- 1. kopeeri endale siit: https://tools.picsart.com/text/emojis/ üks emoji oma tegelaseks "?" asemele -->
+            <span id="emoji">
+                ?
+            </span>
+        </div>
+
+        <!-- 3. Muuda neid nuppe ja lisa puuduolev, et sinu tegelane jõuaks X-iga märgitud koju. -->
+        <button onclick="">1</button>
+        <button onclick="">2</button>
+        <button onclick="">3</button>
+        <button onclick="">4</button>
+
+        <p>Nüüd lisa labürindi all olevatele nuppudele funktsioonid nii, et neid järjest klikkides jõuaks <span
+                class="nimi"></span> x-iga märgitud "koju" ilma läbi rohelise heki minemata.</p>
+        <p>Lisa nuppe juude nii palju kui tarvis.</p>
+               
+    </div>
+
+    <script>
+        // 2. Pane oma tegelasele nimi ja kontrolli kas näed seda kahes kohas oma lehel
+        let nimi = "??";
+
+        // Seda koodi ära muuda (lisab nimed HTMLi sisse õigetesse kohtadesse)
+        let nameslots = document.getElementsByClassName("nimi")
+        for (let i = 0; i < nameslots.length; i++) {
+            nameslots[i].textContent = nimi;
+        }
+        
+        // siit edasi ära muuda
+        var emoji = document.getElementById("emoji");
+
+        // Liigutab tegelast vasakule (100px kaupa)
+        function moveLeft() {
+            emoji.style.left = (emoji.offsetLeft - 100) + "px";
+        }
+
+        // Liigutab tegelast paremale (100px kaupa)
+        function moveRight() {
+            emoji.style.left = (emoji.offsetLeft + 100) + "px";
+        }
+
+        // Liigutab tegelast alla  (100px kaupa)
+        function moveBottom() {
+            emoji.style.top = (emoji.offsetTop + 100) + "px";
+        }
+
+        // Liigutab tegelast üles (100px kaupa)
+        function moveTop() {
+            emoji.style.top = (emoji.offsetTop - 100) + "px";
+        }
+    </script>
+</body>
+
+</html>
